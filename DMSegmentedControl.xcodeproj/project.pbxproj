@@ -8,16 +8,51 @@
 
 /* Begin PBXBuildFile section */
 		B618726621405378005CC5D6 /* DMSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = B618726421405378005CC5D6 /* DMSegmentedControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B618726D214053A4005CC5D6 /* DMSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618726C214053A4005CC5D6 /* DMSegmentedControl.swift */; };
+		B618726F21405BAC005CC5D6 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B618726E21405BAC005CC5D6 /* Enums.swift */; };
+		B61872712140A71E005CC5D6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61872702140A71E005CC5D6 /* Extensions.swift */; };
+		B6E16C952143482400B5C49B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E16C942143482400B5C49B /* AppDelegate.swift */; };
+		B6E16C972143482400B5C49B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E16C962143482400B5C49B /* ViewController.swift */; };
+		B6E16C9A2143482400B5C49B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E16C982143482400B5C49B /* Main.storyboard */; };
+		B6E16C9C2143482500B5C49B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6E16C9B2143482500B5C49B /* Assets.xcassets */; };
+		B6E16C9F2143482500B5C49B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6E16C9D2143482500B5C49B /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B6E16CA42143483000B5C49B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B618725821405378005CC5D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B618726021405378005CC5D6;
+			remoteInfo = DMSegmentedControl;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B618726121405378005CC5D6 /* DMSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DMSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B618726421405378005CC5D6 /* DMSegmentedControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMSegmentedControl.h; sourceTree = "<group>"; };
 		B618726521405378005CC5D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B618726C214053A4005CC5D6 /* DMSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSegmentedControl.swift; sourceTree = "<group>"; };
+		B618726E21405BAC005CC5D6 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		B61872702140A71E005CC5D6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B6E16C922143482400B5C49B /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6E16C942143482400B5C49B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B6E16C962143482400B5C49B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B6E16C992143482400B5C49B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B6E16C9B2143482500B5C49B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B6E16C9E2143482500B5C49B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B6E16CA02143482500B5C49B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B618725D21405378005CC5D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6E16C8F2143482400B5C49B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -31,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				B618726321405378005CC5D6 /* DMSegmentedControl */,
+				B6E16C932143482400B5C49B /* Example */,
 				B618726221405378005CC5D6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -39,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				B618726121405378005CC5D6 /* DMSegmentedControl.framework */,
+				B6E16C922143482400B5C49B /* Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -48,8 +85,24 @@
 			children = (
 				B618726421405378005CC5D6 /* DMSegmentedControl.h */,
 				B618726521405378005CC5D6 /* Info.plist */,
+				B618726C214053A4005CC5D6 /* DMSegmentedControl.swift */,
+				B618726E21405BAC005CC5D6 /* Enums.swift */,
+				B61872702140A71E005CC5D6 /* Extensions.swift */,
 			);
 			path = DMSegmentedControl;
+			sourceTree = "<group>";
+		};
+		B6E16C932143482400B5C49B /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				B6E16C942143482400B5C49B /* AppDelegate.swift */,
+				B6E16C962143482400B5C49B /* ViewController.swift */,
+				B6E16C982143482400B5C49B /* Main.storyboard */,
+				B6E16C9B2143482500B5C49B /* Assets.xcassets */,
+				B6E16C9D2143482500B5C49B /* LaunchScreen.storyboard */,
+				B6E16CA02143482500B5C49B /* Info.plist */,
+			);
+			path = Example;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,16 +137,39 @@
 			productReference = B618726121405378005CC5D6 /* DMSegmentedControl.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		B6E16C912143482400B5C49B /* Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B6E16CA32143482500B5C49B /* Build configuration list for PBXNativeTarget "Example" */;
+			buildPhases = (
+				B6E16C8E2143482400B5C49B /* Sources */,
+				B6E16C8F2143482400B5C49B /* Frameworks */,
+				B6E16C902143482400B5C49B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B6E16CA52143483000B5C49B /* PBXTargetDependency */,
+			);
+			name = Example;
+			productName = Example;
+			productReference = B6E16C922143482400B5C49B /* Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		B618725821405378005CC5D6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = DominicMiller;
 				TargetAttributes = {
 					B618726021405378005CC5D6 = {
+						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
+					};
+					B6E16C912143482400B5C49B = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
 				};
@@ -104,6 +180,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = B618725721405378005CC5D6;
 			productRefGroup = B618726221405378005CC5D6 /* Products */;
@@ -111,6 +188,7 @@
 			projectRoot = "";
 			targets = (
 				B618726021405378005CC5D6 /* DMSegmentedControl */,
+				B6E16C912143482400B5C49B /* Example */,
 			);
 		};
 /* End PBXProject section */
@@ -123,6 +201,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B6E16C902143482400B5C49B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6E16C9F2143482500B5C49B /* LaunchScreen.storyboard in Resources */,
+				B6E16C9C2143482500B5C49B /* Assets.xcassets in Resources */,
+				B6E16C9A2143482400B5C49B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -130,10 +218,49 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B618726F21405BAC005CC5D6 /* Enums.swift in Sources */,
+				B61872712140A71E005CC5D6 /* Extensions.swift in Sources */,
+				B618726D214053A4005CC5D6 /* DMSegmentedControl.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B6E16C8E2143482400B5C49B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6E16C972143482400B5C49B /* ViewController.swift in Sources */,
+				B6E16C952143482400B5C49B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B6E16CA52143483000B5C49B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B618726021405378005CC5D6 /* DMSegmentedControl */;
+			targetProxy = B6E16CA42143483000B5C49B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B6E16C982143482400B5C49B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6E16C992143482400B5C49B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B6E16C9D2143482500B5C49B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B6E16C9E2143482500B5C49B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B618726721405378005CC5D6 /* Debug */ = {
@@ -259,6 +386,7 @@
 		B618726A21405378005CC5D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -276,6 +404,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.DominicMiller.DMSegmentedControl;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -284,6 +413,7 @@
 		B618726B21405378005CC5D6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -306,6 +436,42 @@
 			};
 			name = Release;
 		};
+		B6E16CA12143482500B5C49B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 584E8BNX6Z;
+				INFOPLIST_FILE = Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.DominicMiller.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B6E16CA22143482500B5C49B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 584E8BNX6Z;
+				INFOPLIST_FILE = Example/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.DominicMiller.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -323,6 +489,15 @@
 			buildConfigurations = (
 				B618726A21405378005CC5D6 /* Debug */,
 				B618726B21405378005CC5D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B6E16CA32143482500B5C49B /* Build configuration list for PBXNativeTarget "Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6E16CA12143482500B5C49B /* Debug */,
+				B6E16CA22143482500B5C49B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
