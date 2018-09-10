@@ -35,6 +35,8 @@
 		B618726C214053A4005CC5D6 /* DMSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DMSegmentedControl.swift; sourceTree = "<group>"; };
 		B618726E21405BAC005CC5D6 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		B61872702140A71E005CC5D6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		B63DFCDC2147226B00FF570C /* DMSegmentedControl.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = DMSegmentedControl.podspec; sourceTree = "<group>"; };
+		B63DFCDD2147235F00FF570C /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		B6E16C922143482400B5C49B /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6E16C942143482400B5C49B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6E16C962143482400B5C49B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +67,8 @@
 		B618725721405378005CC5D6 = {
 			isa = PBXGroup;
 			children = (
+				B63DFCDC2147226B00FF570C /* DMSegmentedControl.podspec */,
+				B63DFCDD2147235F00FF570C /* LICENSE.md */,
 				B618726321405378005CC5D6 /* DMSegmentedControl */,
 				B6E16C932143482400B5C49B /* Example */,
 				B618726221405378005CC5D6 /* Products */,
