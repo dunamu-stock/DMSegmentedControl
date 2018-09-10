@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
 s.name          = "DMSegmentedControl"
 s.version       = "1.0.0"
 s.summary       = "A Swift conversion of https://github.com/HeshamMegid/HMSegmentedControl"
-s.swift-version = "4.0"
+s.swift_version = "4.0"
 s.homepage      = "https://github.com/DominicMDev/DMSegmentedControl"
 s.license       = { :type => 'MIT', :file => 'LICENSE.md' }
 s.authors       = { "Dominic Miller" => "dominicmdev@gmail.com", "Hesham Abd-Elmegid" => "hesham.abdelmegid@gmail.com" }
