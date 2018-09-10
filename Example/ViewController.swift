@@ -10,175 +10,169 @@ import UIKit
 
 import DMSegmentedControl
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIScrollViewDelegate {
     
     var scrollView: UIScrollView!
-    
     var segmentedControl4: DMSegmentedControl!
+    var viewWidth: CGFloat!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        title = "DMSegmentedControl Demo"
+        view.backgroundColor = .white
+        edgesForExtendedLayout = UIRectEdge(rawValue: 0)
+        viewWidth = view.frame.width
+        
+        setUpSegmentedControl()
+        setUpSegmentedControl1()
+        setUpSegmentedControl2()
+        setUpSegmentedControl3()
+        setUpSegmentedControl4()
+        setUpScrollView()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    /// Minimum code required to use the segmented control with the default styling.
+    func setUpSegmentedControl() {
+        let segmentedControl = DMSegmentedControl(sectionTitles: ["Trending", "News", "Library"])
+        segmentedControl.frame = CGRect(x: 0, y: 20, width: viewWidth, height: 40)
+        segmentedControl.autoresizingMask = [.flexibleRightMargin, .flexibleWidth]
+        segmentedControl.addTarget(self, action: #selector(segmentedControlChangedValue(_:)), for: .valueChanged)
+        view.addSubview(segmentedControl)
     }
-
-
-//- (void)viewDidLoad {
-//    [super viewDidLoad];
-//
-//    self.title = @"HMSegmentedControl Demo";
-//    self.view.backgroundColor = [UIColor whiteColor];
-//    self.edgesForExtendedLayout = UIRectEdgeNone;
-//
-//    CGFloat viewWidth = CGRectGetWidth(self.view.frame);
-//
-//    // Minimum code required to use the segmented control with the default styling.
-//    HMSegmentedControl *segmentedControl = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"Trending", @"News", @"Library"]];
-//    segmentedControl.frame = CGRectMake(0, 20, viewWidth, 40);
-//    segmentedControl.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
-//    [segmentedControl addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
-//    [self.view addSubview:segmentedControl];
-//
-//
-//    // Segmented control with scrolling
-//    HMSegmentedControl *segmentedControl1 = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"One", @"Two", @"Three", @"Four", @"Five", @"Six", @"Seven", @"Eight"]];
-//    segmentedControl1.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleWidth;
-//    segmentedControl1.frame = CGRectMake(0, 60, viewWidth, 40);
-//    segmentedControl1.segmentEdgeInset = UIEdgeInsetsMake(0, 10, 0, 10);
-//    segmentedControl1.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe;
-//    segmentedControl1.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-//    segmentedControl1.verticalDividerEnabled = YES;
-//    segmentedControl1.verticalDividerColor = [UIColor blackColor];
-//    segmentedControl1.verticalDividerWidth = 1.0f;
-//    [segmentedControl1 setTitleFormatter:^NSAttributedString *(HMSegmentedControl *segmentedControl, NSString *title, NSUInteger index, BOOL selected) {
-//    NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName : [UIColor blueColor]}];
-//    return attString;
-//    }];
-//    [segmentedControl1 addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
-//    [self.view addSubview:segmentedControl1];
-//
-//
-//    // Segmented control with images
-//    NSArray<UIImage *> *images = @[[UIImage imageNamed:@"1"],
-//    [UIImage imageNamed:@"2"],
-//    [UIImage imageNamed:@"3"],
-//    [UIImage imageNamed:@"4"]];
-//
-//    NSArray<UIImage *> *selectedImages = @[[UIImage imageNamed:@"1-selected"],
-//    [UIImage imageNamed:@"2-selected"],
-//    [UIImage imageNamed:@"3-selected"],
-//    [UIImage imageNamed:@"4-selected"]];
-//    NSArray<NSString *> *titles = @[@"1", @"2", @"3", @"4"];
-//
-//    HMSegmentedControl *segmentedControl2 = [[HMSegmentedControl alloc] initWithSectionImages:images sectionSelectedImages:selectedImages titlesForSections:titles];
-//    segmentedControl2.imagePosition = HMSegmentedControlImagePositionLeftOfText;
-//    segmentedControl2.frame = CGRectMake(0, 120, viewWidth, 50);
-//    segmentedControl2.selectionIndicatorHeight = 4.0f;
-//    segmentedControl2.backgroundColor = [UIColor clearColor];
-//    segmentedControl2.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-//    segmentedControl2.selectionStyle = HMSegmentedControlSelectionStyleTextWidthStripe;
-//    segmentedControl2.segmentWidthStyle = HMSegmentedControlSegmentWidthStyleDynamic;
-//    [segmentedControl2 addTarget:self action:@selector(segmentedControlChangedValue:) forControlEvents:UIControlEventValueChanged];
-//    [self.view addSubview:segmentedControl2];
-//
-//
-//    //     Segmented control with more customization and indexChangeBlock
-//    HMSegmentedControl *segmentedControl3 = [[HMSegmentedControl alloc] initWithSectionTitles:@[@"One", @"Two", @"Three", @"4", @"Five"]];
-//    [segmentedControl3 setFrame:CGRectMake(0, 180, viewWidth, 50)];
-//    [segmentedControl3 setIndexChangeBlock:^(NSInteger index) {
-//    NSLog(@"Selected index %ld (via block)", (long)index);
-//    }];
-//    segmentedControl3.selectionIndicatorHeight = 4.0f;
-//    segmentedControl3.backgroundColor = [UIColor colorWithRed:0.1 green:0.4 blue:0.8 alpha:1];
-//    segmentedControl3.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-//    segmentedControl3.selectionIndicatorColor = [UIColor colorWithRed:0.5 green:0.8 blue:1 alpha:1];
-//    segmentedControl3.selectionIndicatorBoxColor = [UIColor blackColor];
-//    segmentedControl3.selectionIndicatorBoxOpacity = 1.0;
-//    segmentedControl3.selectionStyle = HMSegmentedControlSelectionStyleBox;
-//    segmentedControl3.selectedSegmentIndex = HMSegmentedControlNoSegment;
-//    segmentedControl3.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown;
-//    segmentedControl3.shouldAnimateUserSelection = NO;
-//    segmentedControl3.tag = 2;
-//    [self.view addSubview:segmentedControl3];
-//
-//    // Tying up the segmented control to a scroll view
-//    self.segmentedControl4 = [[HMSegmentedControl alloc] initWithFrame:CGRectMake(0, 260, viewWidth, 50)];
-//    self.segmentedControl4.sectionTitles = @[@"Worldwide", @"Local", @"Headlines"];
-//    self.segmentedControl4.selectedSegmentIndex = 1;
-//    self.segmentedControl4.backgroundColor = [UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1];
-//    self.segmentedControl4.titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor whiteColor]};
-//    self.segmentedControl4.selectedTitleTextAttributes = @{NSForegroundColorAttributeName : [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:1]};
-//    self.segmentedControl4.selectionIndicatorColor = [UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:1];
-//    self.segmentedControl4.selectionStyle = HMSegmentedControlSelectionStyleBox;
-//    self.segmentedControl4.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationUp;
-//    self.segmentedControl4.tag = 3;
-//
-//    __weak typeof(self) weakSelf = self;
-//    [self.segmentedControl4 setIndexChangeBlock:^(NSInteger index) {
-//        [weakSelf.scrollView scrollRectToVisible:CGRectMake(viewWidth * index, 0, viewWidth, 200) animated:YES];
-//        }];
-//
-//    [self.view addSubview:self.segmentedControl4];
-//
-//    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 310, viewWidth, 210)];
-//    self.scrollView.backgroundColor = [UIColor colorWithRed:0.7 green:0.7 blue:0.7 alpha:1];
-//    self.scrollView.pagingEnabled = YES;
-//    self.scrollView.showsHorizontalScrollIndicator = NO;
-//    self.scrollView.contentSize = CGSizeMake(viewWidth * 3, 200);
-//    self.scrollView.delegate = self;
-//    [self.scrollView scrollRectToVisible:CGRectMake(viewWidth, 0, viewWidth, 200) animated:NO];
-//    [self.view addSubview:self.scrollView];
-//
-//    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, viewWidth, 210)];
-//    [self setApperanceForLabel:label1];
-//    label1.text = @"Worldwide";
-//    [self.scrollView addSubview:label1];
-//
-//    UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(viewWidth, 0, viewWidth, 210)];
-//    [self setApperanceForLabel:label2];
-//    label2.text = @"Local";
-//    [self.scrollView addSubview:label2];
-//
-//    UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectMake(viewWidth * 2, 0, viewWidth, 210)];
-//    [self setApperanceForLabel:label3];
-//    label3.text = @"Headlines";
-//    [self.scrollView addSubview:label3];
-//    }
-//
-//    - (void)setApperanceForLabel:(UILabel *)label {
-//        CGFloat hue = ( arc4random() % 256 / 256.0 );  //  0.0 to 1.0
-//        CGFloat saturation = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from white
-//        CGFloat brightness = ( arc4random() % 128 / 256.0 ) + 0.5;  //  0.5 to 1.0, away from black
-//        UIColor *color = [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
-//        label.backgroundColor = color;
-//        label.textColor = [UIColor whiteColor];
-//        label.font = [UIFont systemFontOfSize:21.0f];
-//        label.textAlignment = NSTextAlignmentCenter;
-//        }
-//
-//        - (void)segmentedControlChangedValue:(HMSegmentedControl *)segmentedControl {
-//            NSLog(@"Selected index %ld (via UIControlEventValueChanged)", (long)segmentedControl.selectedSegmentIndex);
-//            }
-//
-//            - (void)uisegmentedControlChangedValue:(UISegmentedControl *)segmentedControl {
-//                NSLog(@"Selected index %ld", (long)segmentedControl.selectedSegmentIndex);
-//}
-//
-//#pragma mark - UIScrollViewDelegate
-//
-//- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-//    CGFloat pageWidth = scrollView.frame.size.width;
-//    NSInteger page = scrollView.contentOffset.x / pageWidth;
-//
-//    [self.segmentedControl4 setSelectedSegmentIndex:page animated:YES];
-//}
-
+    
+    /// Segmented control with scrolling
+    func setUpSegmentedControl1() {
+        let segmentedControl1 = DMSegmentedControl(sectionTitles: ["One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight"])
+        segmentedControl1.autoresizingMask = [.flexibleRightMargin, .flexibleWidth]
+        segmentedControl1.frame = CGRect(x: 0, y: 60, width: viewWidth, height: 40)
+        segmentedControl1.segmentEdgeInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        segmentedControl1.selectionStyle = .fullWidthStripe
+        segmentedControl1.selectionIndicatorLocation = .down
+        segmentedControl1.isVerticalDividerEnabled = true
+        segmentedControl1.verticalDividerColor = .black
+        segmentedControl1.verticalDividerWidth = 1.0
+        segmentedControl1.titleFormatter = { (segmentedControl, title, index, selected) in
+            let attString = NSAttributedString(string: title, attributes:[.foregroundColor : UIColor.blue])
+            return attString
+        }
+        segmentedControl1.addTarget(self, action: #selector(segmentedControlChangedValue(_:)), for: .valueChanged)
+        view.addSubview(segmentedControl1)
+    }
+    
+    /// Segmented control with images
+    func setUpSegmentedControl2() {
+        let images = [UIImage(imageLiteralResourceName: "1"), UIImage(imageLiteralResourceName: "2"),
+                      UIImage(imageLiteralResourceName: "3"), UIImage(imageLiteralResourceName: "4")]
+        let selectedImages = [UIImage(imageLiteralResourceName: "1-selected"), UIImage(imageLiteralResourceName: "2-selected"),
+                              UIImage(imageLiteralResourceName: "3-selected"), UIImage(imageLiteralResourceName: "4-selected")]
+        let titles = ["1", "2", "3", "4"]
+        
+        let segmentedControl2 = DMSegmentedControl(sectionImages: images, sectionSelectedImages: selectedImages, sectionTitles: titles)
+        segmentedControl2.imagePosition = .leftOfText
+        segmentedControl2.frame = CGRect(x: 0, y: 120, width: viewWidth, height: 50)
+        segmentedControl2.selectionIndicatorHeight = 4.0
+        segmentedControl2.backgroundColor = .clear
+        segmentedControl2.selectionIndicatorLocation = .down
+        segmentedControl2.selectionStyle = .textWidthStripe
+        segmentedControl2.segmentWidthStyle = .dynamic
+        segmentedControl2.addTarget(self, action: #selector(segmentedControlChangedValue(_:)), for: .valueChanged)
+        view.addSubview(segmentedControl2)
+    }
+    
+    /// Segmented control with more customization and indexChangeBlock
+    func setUpSegmentedControl3() {
+        let segmentedControl3 = DMSegmentedControl(sectionTitles: ["One", "Two", "Three", "4", "Five"])
+        segmentedControl3.frame = CGRect(x: 0, y: 180, width: viewWidth, height: 50)
+        segmentedControl3.indexChangeBlock = { index in
+            print("Selected index \(index) (via block)")
+        }
+        segmentedControl3.selectionIndicatorHeight = 4.0
+        segmentedControl3.backgroundColor = UIColor(red: 0.1, green: 0.4, blue: 0.8, alpha: 1)
+        segmentedControl3.titleTextAttributes = [.foregroundColor : UIColor.white]
+        segmentedControl3.selectionIndicatorColor = UIColor(red: 0.5, green: 0.8, blue: 1, alpha: 1)
+        segmentedControl3.selectionIndicatorBoxColor = .black
+        segmentedControl3.selectionIndicatorBoxOpacity = 1.0
+        segmentedControl3.selectionStyle = .box
+        segmentedControl3.selectedSegmentIndex = DMSegmentedControl.NoSegment
+        segmentedControl3.selectionIndicatorLocation = .down
+        segmentedControl3.shouldAnimateUserSelection = false
+        segmentedControl3.tag = 2
+        view.addSubview(segmentedControl3)
+    }
+    
+    // Tying up the segmented control to a scroll view
+    func setUpSegmentedControl4() {
+        segmentedControl4 = DMSegmentedControl(frame: CGRect(x: 0, y: 260, width: viewWidth, height: 50))
+        segmentedControl4.sectionTitles = ["Worldwide", "Local", "Headlines"]
+        segmentedControl4.selectedSegmentIndex = 1
+        segmentedControl4.backgroundColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1)
+        segmentedControl4.titleTextAttributes = [.foregroundColor : UIColor.white]
+        segmentedControl4.selectedTitleTextAttributes = [.foregroundColor : UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1)]
+        segmentedControl4.selectionIndicatorColor = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1)
+        segmentedControl4.selectionStyle = .box
+        segmentedControl4.selectionIndicatorLocation = .up
+        segmentedControl4.tag = 3
+        segmentedControl4.indexChangeBlock = { [weak self] (index) in
+            self?.scrollView.scrollRectToVisible(CGRect(x: self!.viewWidth * CGFloat(index), y: 0,
+                                                        width: self!.viewWidth, height: 200),
+                                                 animated: true)
+        }
+        view.addSubview(segmentedControl4)
+    }
+    
+    func setUpScrollView() {
+        scrollView = UIScrollView(frame: CGRect(x: 0, y: 310, width: viewWidth, height: 210))
+        scrollView.backgroundColor = UIColor(red: 0.7, green: 0.7, blue:0.7, alpha: 1)
+        scrollView.isPagingEnabled = true
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.contentSize = CGSize(width: viewWidth * 3, height: 200)
+        scrollView.delegate = self
+        scrollView.scrollRectToVisible(CGRect(x: viewWidth, y: 0, width: viewWidth, height: 200), animated: false)
+        view.addSubview(scrollView)
+        
+        let label1 = UILabel(frame: CGRect(x: 0, y: 0, width: viewWidth, height: 210))
+        setApperance(for: label1)
+        label1.text = "Worldwide"
+        scrollView.addSubview(label1)
+        
+        let label2 = UILabel(frame: CGRect(x: viewWidth, y: 0, width: viewWidth, height: 210))
+        setApperance(for: label2)
+        label2.text = "Local"
+        scrollView.addSubview(label2)
+        
+        let label3 = UILabel(frame: CGRect(x: viewWidth * 2, y: 0, width: viewWidth, height: 210))
+        setApperance(for: label3)
+        label3.text = "Headlines"
+        scrollView.addSubview(label3)
+    }
+    
+    func setApperance(for label: UILabel) {
+        let hue: CGFloat = CGFloat(arc4random() % 256) / 256.0
+        let saturation: CGFloat = (CGFloat(arc4random() % 128) / 256.0) + 0.5  //  0.5 to 1.0, away from white
+        let brightness: CGFloat = (CGFloat(arc4random() % 128) / 256.0) + 0.5  //  0.5 to 1.0, away from black
+        let color = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
+        label.backgroundColor = color
+        label.textColor = .white
+        label.font = UIFont.systemFont(ofSize: 21.0)
+        label.textAlignment = .center
+    }
+    
+    @objc func segmentedControlChangedValue(_ segmentedControl: DMSegmentedControl) {
+        print("Selected index \(segmentedControl.selectedSegmentIndex) (via UIControlEventValueChanged)")
+    }
+    
+    @objc func uisegmentedControlChangedValue(_ segmentedControl: UISegmentedControl) {
+        print("Selected index \(segmentedControl.selectedSegmentIndex)")
+    }
+    
+    /*
+     * MARK: - UIScrollViewDelegate
+     */
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageWidth = scrollView.frame.width
+        let page = Int(scrollView.contentOffset.x / pageWidth)
+        segmentedControl4.setSelectedSegmentIndex(page, animated: true)
+    }
+    
 }
-
-
-
-

@@ -37,8 +37,8 @@ public struct DMSegmentedControlBorderType: OptionSet {
     public static let right = DMSegmentedControlBorderType(rawValue: (1 << 3))
 }
 
-extension DMSegmentedControl {
-    static let NoSegment = -1   // Segment index for no selected segment
+public extension DMSegmentedControl {
+    public static let NoSegment = -1   // Segment index for no selected segment
 }
 
 public enum DMSegmentedControlType: Int {
