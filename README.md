@@ -12,7 +12,7 @@ A Swift conversion of https://github.com/HeshamMegid/HMSegmentedControl
 - Supports advanced title styling with text attributes for font, color, kerning, shadow, etc.
 - Supports selection indicator both on top and bottom
 - Supports blocks
-- Works with ARC and iOS >= 7
+- Works iOS >= 10
 
 # Installation
 
