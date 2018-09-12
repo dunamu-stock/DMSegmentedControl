@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 
-class DMScrollView: UIScrollView {
+class ScrollView: UIScrollView {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if !isDragging {
@@ -47,7 +47,7 @@ public class DMSegmentedControl: UIControl {
     private var selectionIndicatorArrowLayer: CALayer!
     private var segmentWidth: CGFloat = 0
     private var segmentWidthsArray = [CGFloat]()
-    private var scrollView: DMScrollView = DMScrollView()
+    private var scrollView: ScrollView = ScrollView()
     
     public var sectionTitles = [String]() {
         didSet {
@@ -214,7 +214,7 @@ public class DMSegmentedControl: UIControl {
     }
     
     private func commonInit() {
-        self.scrollView = DMScrollView()
+        self.scrollView = ScrollView()
         self.scrollView.scrollsToTop = false
         self.scrollView.showsVerticalScrollIndicator = false
         self.scrollView.showsHorizontalScrollIndicator = false
