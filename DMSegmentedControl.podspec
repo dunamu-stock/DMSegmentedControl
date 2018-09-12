@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name          = "DMSegmentedControl"
-s.version       = "1.0.0"
+s.version       = "1.0.1"
 s.summary       = "A Swift conversion of https://github.com/HeshamMegid/HMSegmentedControl"
 s.swift_version = "4.0"
 s.homepage      = "https://github.com/DominicMDev/DMSegmentedControl"
