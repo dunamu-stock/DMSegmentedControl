@@ -111,6 +111,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         segmentedControl4.selectionIndicatorColor = UIColor(red: 0.3, green: 0.3, blue: 0.3, alpha: 1)
         segmentedControl4.selectionStyle = .box
         segmentedControl4.selectionIndicatorLocation = .up
+        segmentedControl4.segmentWidthStyle = .fixed
         segmentedControl4.tag = 3
         segmentedControl4.indexChangeBlock = { [weak self] (index) in
             self?.scrollView.scrollRectToVisible(CGRect(x: self!.viewWidth * CGFloat(index), y: 0,
