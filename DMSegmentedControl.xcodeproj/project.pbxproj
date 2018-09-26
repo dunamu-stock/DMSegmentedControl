@@ -29,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8092A4EF215C0F2E00C44F15 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B618726121405378005CC5D6 /* DMSegmentedControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DMSegmentedControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B618726421405378005CC5D6 /* DMSegmentedControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DMSegmentedControl.h; sourceTree = "<group>"; };
 		B618726521405378005CC5D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 		B618725721405378005CC5D6 = {
 			isa = PBXGroup;
 			children = (
+				8092A4EF215C0F2E00C44F15 /* README.md */,
 				B63DFCDC2147226B00FF570C /* DMSegmentedControl.podspec */,
 				B63DFCDD2147235F00FF570C /* LICENSE.md */,
 				B618726321405378005CC5D6 /* DMSegmentedControl */,
@@ -171,10 +173,11 @@
 				TargetAttributes = {
 					B618726021405378005CC5D6 = {
 						CreatedOnToolsVersion = 9.4.1;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1000;
 					};
 					B6E16C912143482400B5C49B = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -409,7 +412,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -435,7 +438,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.DominicMiller.DMSegmentedControl;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -453,7 +456,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.DominicMiller.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -471,7 +474,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.DominicMiller.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
