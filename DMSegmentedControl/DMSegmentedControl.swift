@@ -230,9 +230,9 @@ open class DMSegmentedControl: UIControl {
         self.backgroundColor = .white
         self.isOpaque = false
         
-        self.selectionIndicatorArrowLayer = CALayer(layer: layer)
-        self.selectionIndicatorStripLayer = CALayer(layer: layer)
-        self.selectionIndicatorBoxLayer = CALayer(layer: layer)
+        self.selectionIndicatorArrowLayer = CALayer()
+        self.selectionIndicatorStripLayer = CALayer()
+        self.selectionIndicatorBoxLayer = CALayer()
         self.selectionIndicatorBoxLayer.opacity = Float(self.selectionIndicatorBoxOpacity)
         self.selectionIndicatorBoxLayer.borderWidth = 1.0
         self.selectionIndicatorBoxOpacity = 0.2
@@ -342,7 +342,7 @@ open class DMSegmentedControl: UIControl {
             case .dynamic: rects = dynamicTextRects(for: oldRect, index: idx, size: size)
             }
             
-            let titleLayer = CATextLayer(layer: layer)
+            let titleLayer = CATextLayer()
             titleLayer.frame = rects.rect
             titleLayer.alignmentMode = .center
             if #available(*, iOS 10.0) {
@@ -354,7 +354,7 @@ open class DMSegmentedControl: UIControl {
             
             // Vertical Divider
             if isVerticalDividerEnabled && idx > 0 {
-                let verticalDividerLayer = CALayer(layer: layer)
+                let verticalDividerLayer = CALayer()
                 verticalDividerLayer.frame = rects.rectDiv
                 verticalDividerLayer.backgroundColor = verticalDividerColor.cgColor
                 scrollView.layer.addSublayer(verticalDividerLayer)
@@ -411,7 +411,7 @@ open class DMSegmentedControl: UIControl {
             let x = segmentWidth * CGFloat(idx) + (segmentWidth - imageWidth)/2.0
             let rect = CGRect(x: x, y: y, width: imageWidth, height: imageHeight)
             
-            let imageLayer = CALayer(layer: layer)
+            let imageLayer = CALayer()
             imageLayer.frame = rect
             
             if selectedSegmentIndex == idx && !sectionSelectedImages.isEmpty {
@@ -424,7 +424,7 @@ open class DMSegmentedControl: UIControl {
             scrollView.layer.addSublayer(imageLayer)
             // Vertical Divider
             if isVerticalDividerEnabled && idx > 0 {
-                let verticalDividerLayer = CALayer(layer: layer)
+                let verticalDividerLayer = CALayer()
                 verticalDividerLayer.frame = CGRect(x: (segmentWidth * CGFloat(idx)) - (verticalDividerWidth / 2),
                                                     y: selectionIndicatorHeight * 2,
                                                     width: verticalDividerWidth,
@@ -449,14 +449,14 @@ open class DMSegmentedControl: UIControl {
             case .dynamic: rects = dynamicTextImageRects(for: idx, stringSize: stringSize, imageSize: imageSize)
             }
             
-            let titleLayer = CATextLayer(layer: layer)
+            let titleLayer = CATextLayer()
             titleLayer.frame = rects.textRect
             titleLayer.alignmentMode = .center
             titleLayer.string = attributedTitle(at: idx)
             if #available(*, iOS 10.0) {
                 titleLayer.truncationMode = .end
             }
-            let imageLayer = CALayer(layer: layer)
+            let imageLayer = CALayer()
             imageLayer.frame = rects.imageRect
             
             if selectedSegmentIndex == idx && !sectionSelectedImages.isEmpty {
@@ -552,30 +552,30 @@ open class DMSegmentedControl: UIControl {
     
     func addBackgroundAndBorderLayer(rect fullRect: CGRect) {
         // Background layer
-        let backgroundLayer = CALayer(layer: layer)
+        let backgroundLayer = CALayer()
         backgroundLayer.frame = fullRect
         layer.insertSublayer(backgroundLayer, at: 0)
         
         // Border layer
         switch borderType {
         case .top:
-            let borderLayer = CALayer(layer: layer)
+            let borderLayer = CALayer()
             borderLayer.frame = CGRect(x: 0, y: 0, width: fullRect.size.width, height: borderWidth)
             borderLayer.backgroundColor = borderColor.cgColor
             backgroundLayer.addSublayer(borderLayer)
         case .left:
-            let borderLayer = CALayer(layer: layer)
+            let borderLayer = CALayer()
             borderLayer.frame = CGRect(x: 0, y: 0, width: borderWidth, height: fullRect.size.height)
             borderLayer.backgroundColor = borderColor.cgColor
             backgroundLayer.addSublayer(borderLayer)
         case .bottom:
-            let borderLayer = CALayer(layer: layer)
+            let borderLayer = CALayer()
             borderLayer.frame = CGRect(x: 0, y:  fullRect.size.height - borderWidth,
                                        width: fullRect.size.width, height: borderWidth)
             borderLayer.backgroundColor = borderColor.cgColor
             backgroundLayer.addSublayer(borderLayer)
         case .right:
-            let borderLayer = CALayer(layer: layer)
+            let borderLayer = CALayer()
             borderLayer.frame = CGRect(x: fullRect.size.width - borderWidth, y: 0,
                                        width: borderWidth, height: fullRect.size.height)
             borderLayer.backgroundColor = borderColor.cgColor
