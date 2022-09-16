@@ -522,7 +522,7 @@ open class DMSegmentedControl: UIControl {
             xOffset += width
             i += 1
         }
-        
+        let segmentWidth = segmentWidthsArray[i]
         let isImageInLineWidthText = (imagePosition == .leftOfText || imagePosition == .rightOfText)
         if isImageInLineWidthText {
             if imagePosition == .leftOfText {
@@ -533,8 +533,8 @@ open class DMSegmentedControl: UIControl {
                 imageXOffset = textXOffset + stringSize.width + textImageSpacing
             }
         } else {
-            imageXOffset = xOffset + (segmentWidthsArray[i] - imageSize.width) / 2.0 // Start with edge inset
-            textXOffset  = xOffset + (segmentWidthsArray[i] - stringSize.width) / 2.0
+            imageXOffset = xOffset + (segmentWidth - imageSize.width) / 2.0 // Start with edge inset
+            textXOffset  = xOffset + (segmentWidth - stringSize.width) / 2.0
             
             let whitespace = frame.height - imageSize.height - stringSize.height - textImageSpacing
             if imagePosition == .aboveText {
